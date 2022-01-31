@@ -25,6 +25,7 @@ public class AssignmnetWeek5 {
             String word = sh.getRow(i).getCell(0).getStringCellValue();
             collection.add(word);
         }
+        System.out.println(collection);
     }
     public void check() {
         Scanner sc = new Scanner(System.in);
