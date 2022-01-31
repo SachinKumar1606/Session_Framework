@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <listeners>
-        <listener class-name="ExtendReport.listeners"/>
-    </listeners>
+<!--    <listeners>-->
+<!--        <listener class-name="ExtentReports.listeners"/>-->
+<!--    </listeners>-->
     <test verbose="2" preserve-order="true"
-          name="C:/Users/SachinKumar/Documents/Sachin Kumar/Projects/Session_Framework/com/Week3/Day1">
+          name="C:/Users/SachinKumar/Documents/Sachin Kumar/Projects/Session_Framework/com/dataDriven/DataDrivenTestNG.java">
         <classes>
-            <class name="com.Week3.Day1.DemoTestNG2">
+            <class name="com.dataDriven.DataDrivenTestNG">
                 <methods>
-                    <include name="login"/>
-                    <include name="valid"/>
-                </methods>
-            </class>
-            <class name="com.Week3.Day1.DemoTestNG3">
-                <methods>
-                    <include name="cart"/>
-                    <include name="validate"/>
+                    <include name="signToSwag"/>
                 </methods>
             </class>
         </classes>
