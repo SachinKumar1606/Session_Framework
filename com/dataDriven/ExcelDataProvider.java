@@ -3,6 +3,7 @@ package com.dataDriven;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -39,11 +40,11 @@ public class ExcelDataProvider {
         driver.findElement(By.id("user-name")).sendKeys(name);
         driver.findElement(By.id("password")).sendKeys(pass);
         driver.findElement(By.id("login-button")).click();
-        String exp="https://www.saucedemo.com/inventory.html";
-        String act;
-        act=driver.getCurrentUrl();
+        WebElement s = driver.findElement(By.xpath("//span[contains(text(),'Products')]"));
+        String act = s.getText();
+        Assert.assertEquals(act,"PRODUCTS");
         driver.close();
-        Assert.assertEquals(act,exp);
+
     }
 
 
