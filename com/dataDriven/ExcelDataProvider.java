@@ -29,6 +29,8 @@ public class ExcelDataProvider {
                 System.out.println(data1+"\t"+data2);
         }
         System.out.println(arr);
+        arr[0][0]="standard_user";
+        arr[0][1]="secret_sauce";
         return arr;
     }
     @Test(dataProvider = "DaTa")
@@ -42,8 +44,8 @@ public class ExcelDataProvider {
         driver.findElement(By.id("login-button")).click();
         WebElement s = driver.findElement(By.xpath("//span[contains(text(),'Products')]"));
         String act = s.getText();
-        Assert.assertEquals(act,"PRODUCTS");
         driver.close();
+        Assert.assertEquals(act,"PRODUCTS");
 
     }
 

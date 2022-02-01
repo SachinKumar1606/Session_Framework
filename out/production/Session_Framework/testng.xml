@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-<!--    <listeners>-->
-<!--        <listener class-name="ExtentReports.listeners"/>-->
-<!--    </listeners>-->
+    <listeners>
+        <listener class-name="ExtentReports.listeners"/>
+    </listeners>
     <test verbose="2" preserve-order="true"
-          name="C:/Users/SachinKumar/Documents/Sachin Kumar/Projects/Session_Framework/com/dataDriven/DataDrivenTestNG.java">
+          name="C:/Users/SachinKumar/Documents/Sachin Kumar/Projects/Session_Framework/com/dataDriven">
         <classes>
             <class name="com.dataDriven.DataDrivenTestNG">
                 <methods>
                     <include name="signToSwag"/>
+                </methods>
+            </class>
+            <class name="com.dataDriven.ExcelDataProvider">
+                <methods>
+                    <include name="login"/>
                 </methods>
             </class>
         </classes>
