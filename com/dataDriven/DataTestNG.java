@@ -1,16 +1,16 @@
 package com.dataDriven;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 
 public class DataTestNG {
+
     public int a,b;
     FileInputStream file;
     XSSFWorkbook bk;
     XSSFSheet sh;
+
     public void data() throws IOException {
         String path = System.getProperty("user.dir") + "/TestData/Login.xlsx";
         System.out.println(path);
@@ -20,7 +20,6 @@ public class DataTestNG {
         bk = new XSSFWorkbook(file);
         //Reading the sheet
         sh = bk.getSheetAt(0);
-
         a = sh.getLastRowNum();
         b = sh.getRow(0).getPhysicalNumberOfCells();
 

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <listeners>
-        <listener class-name="ExtentReports.listeners"/>
-    </listeners>
     <test verbose="2" preserve-order="true"
-          name="C:/Users/SachinKumar/Documents/Sachin Kumar/Projects/Session_Framework/com/dataDriven">
+          name="C:/Users/SachinKumar/Documents/Sachin Kumar/Projects/Session_Framework/com/Week3_Day2/Parameter_TestNG.java">
+        <parameter name="uname" value="standard_user"></parameter>
+        <parameter name="pass" value="secret_sauce"></parameter>
+        <parameter name="uname" value="performance_glitch_user"></parameter>
+        <parameter name="pass" value="secret_sauce"></parameter>
         <classes>
-            <class name="com.dataDriven.DataDrivenTestNG">
-                <methods>
-                    <include name="signToSwag"/>
-                </methods>
-            </class>
-            <class name="com.dataDriven.ExcelDataProvider">
+            <class name="com.Week3_Day2.Parameter_TestNG">
                 <methods>
                     <include name="login"/>
+                    <include name="check"/>
+                    <include name="logout"/>
+                    <include name="check2"/>
                 </methods>
             </class>
         </classes>

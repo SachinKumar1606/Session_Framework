@@ -6,12 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
 public class ExcelDataProvider {
+
+    WebDriver driver;
     @DataProvider(name="DaTa")
     public Object[][] testData() throws IOException {
 
@@ -20,23 +24,21 @@ public class ExcelDataProvider {
         int row = ex.a;
         int col = ex.b;
         System.out.println(row+"     "+col);
-        Object[][] arr = new Object[row+1][2];
-        for (int i=1;i<=row;i++){
+        Object[][] arr = new Object[row][2];
+        int ij=0;
+        for (int i=1;i<=row;i++,ij++){
                 String data1= ex.getData(i,0);
                 String data2= ex.getData(i,1);
-                arr[i][0]= data1;
-                arr[i][1] = data2;
+                arr[ij][0]= data1;
+                arr[ij][1] = data2;
                 System.out.println(data1+"\t"+data2);
         }
-        System.out.println(arr);
-        arr[0][0]="standard_user";
-        arr[0][1]="secret_sauce";
         return arr;
     }
     @Test(dataProvider = "DaTa")
     public void login(String name,String pass){
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().to("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys(name);
@@ -48,7 +50,4 @@ public class ExcelDataProvider {
         Assert.assertEquals(act,"PRODUCTS");
 
     }
-
-
-
 }

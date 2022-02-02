@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/SachinKumar/Documents/Sachin Kumar/Projects/Session_Framework/com/Week3_Day2/DependsTestNG.java">
+        <classes>
+            <class name="com.Week3_Day2.DependsTestNG">
+                <methods>
+                    <include name="login"/>
+                    <include name="checkLogin"/>
+                    <include name="logout"/>
+                    <include name="checkLogout"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

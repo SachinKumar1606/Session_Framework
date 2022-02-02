@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Run">
+        <groups>
+            <run>
+                <include name="Run"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.Week3_Day2.GroupByDemo">
+                <methods>
+                    <include name="login"/>
+                    <include name="check"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="NotRun">
+    <groups>
+            <run>
+                <include name="NotRun"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.Week3_Day2.GroupByDemo">
+                <methods>
+                    <include name="logout"/>
+                    <include name="check2"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

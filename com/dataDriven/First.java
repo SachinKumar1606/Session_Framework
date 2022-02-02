@@ -1,22 +1,11 @@
 package com.dataDriven;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.openxml4j.opc.OPCPackage;
-import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbookFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Map;
-import java.util.TreeMap;
+import java.io.*;
 
 public class First {
     WebDriver driver;
@@ -29,7 +18,6 @@ public class First {
         driver.findElement(By.id("login-button")).submit();
         String act = driver.getCurrentUrl();
         return act;
-
     }
     void close(){
         driver.quit();
@@ -47,12 +35,11 @@ public class First {
         //printing the no of coloum in the sheets
         System.out.println(sh.getLastRowNum());
         //Reading the file data using for loop
-        for(int i=1; i<=sh.getLastRowNum();i++){
+        for(int i = 1; i <= sh.getLastRowNum(); i++){
             System.out.print(sh.getRow(i).getCell(0).getStringCellValue()+"\t");
             System.out.println(sh.getRow(i).getCell(1).getStringCellValue());
-            sh.getRow(i).createCell(2).setCellValue("" +
-                    "Data Fetch");
-            FileOutputStream outFile =new FileOutputStream(path);
+            sh.getRow(i).createCell(2).setCellValue("" + "Data Fetch");
+            FileOutputStream outFile = new FileOutputStream(path);
             bk.write(outFile);
             outFile.close();
         }
@@ -70,48 +57,15 @@ public class First {
             else{
                 sh.getRow(i).createCell(4).setCellValue(act);
                 sh.getRow(i).createCell(5).setCellValue("Test Case Fail");
-//                FileOutputStream outFile =new FileOutputStream(path);
                 bk.write(outFile);
             }
-
-
-//            outfile.close();
-
             Thread.sleep(2000);
             close();
         }
-
-
-    }
-    void writeTo () throws IOException {
-        //Reading the file path
-            String path = System.getProperty("user.dir")+"/TestData/Login.xlsx";
-        //Reading the Excel file
-        FileInputStream file = new FileInputStream(path);
-        //Reading the workBook
-        Workbook wb = WorkbookFactory.create(file);
-//                XSSFWorkbookFactory(file);
-
-        //Get first sheet from the workbook.
-        //If there have >1 sheet in your workbook, you can change it here IF you want to edit other sheets.
-        Sheet sheet1 = wb.getSheetAt(1);
-        FileOutputStream fos = new FileOutputStream(path);
-        Row row = sheet1.getRow(0);
-        for(int i=5; i<=10;i++){
-            Cell column = row.createCell(i);
-            column.setCellValue("I am active "+i);
-            System.out.println(column.getStringCellValue());
-
-            wb.write(fos);
-        }
-        fos.flush();
-
-        fos.close();
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
         First obj = new First();
         obj.callMain();
-//        obj.writeTo();
     }
 }
