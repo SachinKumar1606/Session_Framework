@@ -2,18 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="C:/Users/SachinKumar/Documents/Sachin Kumar/Projects/Session_Framework/com/Week3_Day2/Parameter_TestNG.java">
-        <parameter name="uname" value="standard_user"></parameter>
-        <parameter name="pass" value="secret_sauce"></parameter>
-        <parameter name="uname" value="performance_glitch_user"></parameter>
-        <parameter name="pass" value="secret_sauce"></parameter>
+          name="ParallelExicution" parallel="methods" thread-count="5">
         <classes>
-            <class name="com.Week3_Day2.Parameter_TestNG">
+            <class name="com.Week3_Day3.Parallel_Execution">
                 <methods>
-                    <include name="login"/>
-                    <include name="check"/>
-                    <include name="logout"/>
-                    <include name="check2"/>
+                    <include name="launchChrome"/>
+<!--                    <include name="launchMozila"/>-->
                 </methods>
             </class>
         </classes>
